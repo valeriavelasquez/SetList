@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="javascript" href="./playlist.JSON">
+      <script src="playlist.JSON"></script>
+      <title>Valeria's Setlist</title>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+      <style>
+         body{
+         margin-left: 28%;
+         margin-right: 28%;
+         text-align: center;
+         font-family: 'Open Sans', sans-serif;
+         background-color: #93ccea;
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <h1>Valeria's Setlist</h1>
+      </header>
+      <div class="Subsec">
+         <h2>Serialized Data</h2>
+         <div class="container">
+            <div id="serialDisplay"></div>
+         </div>
+      </div>
+      <div class="Subsec">
+         <h2>Friendly Display of All The Songs</h2>
+         <div class="container">
+            <div id="friendlyDisplay"></div>
+         </div>
+      </div>
+      <div class="Subsec">
+         <h2 class="music">
+            Music Filter
+            <form>
+               <select name="selectedGenres" id="selection">
+                  <option value="All Songs">   All Songs</option>
+                  <option value="Latin">    Latin</option>
+                  <option value="Pop"> Pop</option>
+                  <option value="R&B">   R and B </option>
+               </select>
+               <br>
+               <input type="button" value="filter" onclick="genreDisplay()" class="button" style=" font-family: 'Open Sans', sans-serif">
+            </form>
+         </h2>
+         <div class="container">
+            <div class="song-container">
+               <div id="filter"></div>
+            </div>
+         </div>
+      </div>
+      <script lang="javascript">
+         function displayFilter()
+         {
+            
+             var count = 0;
+         while (count < playlist.length) {
+            title   = playlist[count].title + "<br>";
+            artists = playlist[count].artist + "<br>";
+            genres  = playlist[count].genre + "<br>";
+            year    = playlist[count].year;
+         
+             document.getElementById("filter").innerHTML += "<div id='"+ "<div id='package'>" + "<b>" + title + "</b>"+  artists + "</div></div>" + "<br />";
+            count++
+         }
+         }
+         //SERIALIZED DATA 
+         serial_data = JSON.stringify(playlist);
+         document.getElementById("serialDisplay").innerHTML = serial_data;
+         
+         //USER FRIENDLY DISPLAY
+         friendlyDisplay = document.getElementById("friendlyDisplay");
+         var count = 0;
+         while (count < playlist.length) {
+            title   = playlist[count].title + "<br>";
+            artists = playlist[count].artist + "<br>";
+            genres  = playlist[count].genre + "<br>";
+            year    = playlist[count].year;
+         
+            one_song = "<div class='friendly_songs'> <h2>" + "<b>" + title + "</b>"+  "</h2>" +   "Artist: "+ artists + "Genre(s): "+ genres + "Released "+ year + "</p> </div>";
+            friendlyDisplay.innerHTML += one_song;
+            count++;
+            
+         }
+         displayFilter();
+         
+         //FILTER THROUGH GENRES 
+         function genreDisplay() {
+            selectedGenre =  document.getElementById("selection").value;
+         
+            document.getElementById("filter").innerHTML = "";
+            if (selectedGenre == 'All Songs') {
+                for (i = 0; i < playlist.length; i++) {
+                     title   = playlist[i].title +  "<br>";
+                            artists = playlist[i].artist +   "<br>";
+                    allSongs = "<div id="+  "<div id='package'>"  + "<b>" + title + "</b>"+  artists + "</div></div>" + 
+                        "<br />";
+                    document.getElementById("filter").innerHTML += allSongs;
+                }
+            }
+            else {
+                for (i = 0; i < playlist.length; i++) {
+                    genres = playlist[i].genre;
+                    for (j = 0; j < genres.length; j++) {
+                        if (genres[j] == selectedGenre) {
+                            title   = playlist[i].title +  "<br>";
+                            artists = playlist[i].artist +   "<br>";
+                            document.getElementById("filter").innerHTML += "<div id="+ "<div id='package'>" + "<b>" + title + "</b>"+  artists + "</div></div>" + "<br />";
+                            break;
+                        }
+                    }
+         
+                }
+            }
+           
+         }
+         
+      </script>
+   </body>
+</html>
