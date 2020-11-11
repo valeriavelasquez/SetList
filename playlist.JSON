@@ -1,0 +1,69 @@
+playlist = [
+    {
+      "artist": ["Maluma"],
+      "title": "11PM",
+      "year": "2019",
+      "genre": ["Latin", "Pop"],
+    },
+  
+    {
+      "artist": ["Danna Paola", "Sebastian Yatra"],
+      "title": "No Bailes Sola",
+      "year": "2020",
+      "genre": ["Latin", "Pop"],
+    },
+    {
+      "artist": ["Maluma"],
+      "title": "Hawai",
+      "year": "2020",
+      "genre": ["Latin", "Pop"],
+    },
+    {
+      "artist": ["Ariana Grande"],
+      "title": "7 Rings",
+      "year": "2019",
+      "genre": ["Pop"],
+    },
+  
+    {
+      "artist": ["One Direction"],
+      "title": "End of the Day ",
+      "year": "2015",
+      "genre": ["Pop"],
+    },
+  
+    {
+      "artist": ["Lauryn Hill"],
+      "title": "Doo Wop (That Thing)",
+      "year": "1998",
+      "genre": ["R&B"],
+    },
+  
+    {
+      "artist": ["Toni Braxton"],
+      "title": "Unbreak My Heart",
+      "year": "1996",
+      "genre": ["R&B"],
+    },
+  
+    {
+      "artist": ["Shakira"],
+      "title": "Ojos Asi",
+      "year": "1998",
+      "genre": ["Latin"],
+    },
+  
+    {
+      "artist": ["Jazzmine Sullivan"],
+      "title": "Bust Your Windows",
+      "year": "2008",
+      "genre": ["R&B"],
+    },
+  
+    {
+      "artist": ["Josean Log"],
+      "title": "Beso",
+      "year": "2018",
+      "genre": ["Latin"],
+    }
+  ]
